@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import aggregate from 'cube-core';
 import embed from 'vega-embed';
 import { DataSource, Field, FieldType } from '../global'
+import { DarkVega } from '../styles/darkTheme';
 const geomTypeMap: {[key: string]: any} = {
   interval: 'bar',
   line: 'line',
@@ -99,6 +100,7 @@ const BaseChart: React.FC<BaseChartProps> = (props) => {
     }
     let spec: any = {
       width: 600,
+      ...DarkVega,
       data: {
         values: table
       }

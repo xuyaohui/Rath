@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import embed from 'vega-embed';
 import { FieldType, DataSource } from '../../global';
+import { DarkVega } from '../../styles/darkTheme';
 export interface DistributionChartProps {
   fieldType: FieldType;
   x: string;
@@ -36,8 +37,8 @@ const DistributionChart: React.FC<DistributionChartProps> = (props) => {
         } else if (fieldType === 'ordinal' && hasIndex) {
           sortBy = { field: 'index' }
         }
-        embed(chart.current, {
-          background: '#fff',
+        let spec: any = {
+          ...DarkVega,
           data: {
             values
           },
@@ -52,7 +53,8 @@ const DistributionChart: React.FC<DistributionChartProps> = (props) => {
             },
             y: { field: y, type: 'quantitative', aggregate: 'sum' }
           }
-        }, {
+        }
+        embed(chart.current, spec, {
           actions: false
         })
       }

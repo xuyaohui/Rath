@@ -3,6 +3,7 @@ import { Subspace } from '../../service';
 import { DetailsList, SelectionMode, IColumn, Icon, IDetailsRowProps, IDetailsRowStyles, DetailsRow, IRenderFunction, HoverCard, IExpandingCardProps } from 'office-ui-fabric-react';
 import embed from 'vega-embed';
 import { DataSource } from '../../global';
+import { DarkVega } from '../../styles/darkTheme';
 
 function encodeArr (arr: any[]): string {
   return arr.join(',')
@@ -64,6 +65,7 @@ const Subspaces: React.FC<SubspacesProps> = (props) => {
   useEffect(() => {
     if (spaceChart.current && subspaceList.length > 0) {
       embed(spaceChart.current, {
+        ...DarkVega as any,
         data: {
           values
         },
@@ -84,7 +86,7 @@ const Subspaces: React.FC<SubspacesProps> = (props) => {
                 type: 'ordinal',
                 sort: { field: 'score' }
               },
-              color: { field: 'measureValue', type: 'quantitative', aggregate: 'mean', scale: { reverse: true } },
+              color: { field: 'measureValue', type: 'quantitative', aggregate: 'mean', scale: { scheme: 'viridis' } },
               opacity: {
                 condition: {selection: 'dim', value: 1},
                 value: 0.72
@@ -126,6 +128,7 @@ const Subspaces: React.FC<SubspacesProps> = (props) => {
           }
         }
       embed(relationChart.current, {
+        ...DarkVega as any,
         data: {
           values: matrix
         },

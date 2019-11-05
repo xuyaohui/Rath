@@ -8,6 +8,7 @@ import { DataSource,  BIField } from '../../global';
 import {  cleanMethodList, CleanMethod } from './clean';
 import { Cleaner } from 'visual-insights';
 import { useDataSource } from './useDataSource';
+import './index.css'
 
 interface PageStatus {
   show: {
@@ -144,7 +145,7 @@ const DataSourceBoard: React.FC<DataSourceBoardProps> = (props) => {
               </div>
               <div className="vi-callout-inner">
                 <div className="vi-callout-content">
-                  <p className="vi-callout-subTex">
+                  <p className="vi-callout-subText">
                     .csv, .json, .txt are supportted.
                   </p>
                 </div>
@@ -188,11 +189,11 @@ const DataSourceBoard: React.FC<DataSourceBoardProps> = (props) => {
             }}
           />
         </div>
-        <p style={{ fontSize: 12, fontWeight: 400, color: "#595959" }}>
+        <p style={{ fontSize: 12, fontWeight: 400, color: "#e8e8e8" }}>
           Remember to adjust the fields' types and cleaning strategy before
           extracting insights.
         </p>
-        <i style={{ fontSize: 12, fontWeight: 300, color: "#595959" }}>
+        <i style={{ fontSize: 12, fontWeight: 300, color: "#e8e8e8" }}>
           Number of records {preparedData.length}
         </i>
         <DataTable fields={state.fields} dataSource={preparedData} />

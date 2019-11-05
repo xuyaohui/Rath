@@ -183,7 +183,7 @@ const Gallery: React.FC<GalleryProps> = (props) => {
                 <DefaultButton text="Next" onClick={() => { gotoPage((currentPage + 1) % viewSpaces.length) }} allowDisabledFocus />
               </Stack>
               <h3>Specification</h3>
-              <pre>
+              <pre style={{ color: '#e8e8e8'}}>
                 {JSON.stringify(dataView.schema, null, 2)}
               </pre>
               <VisSummary dimensions={dataView.dimensions} measures={dataView.measures} dimScores={dimScores} space={currentSpace} spaceList={subspaceList} schema={dataView.schema}  />

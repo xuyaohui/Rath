@@ -1,12 +1,15 @@
 import React from "react";
 import { useGlobalState, GlobalStateProvider } from "./state";
-import { Pivot, PivotItem } from "office-ui-fabric-react";
+import { Pivot, PivotItem, loadTheme } from "office-ui-fabric-react";
 import { useComposeState } from "./utils/index";
 import "./App.css";
 
 import Gallery from "./pages/gallery/index";
 import NoteBook from "./pages/notebook/index";
 import DataSourceBoard from "./pages/dataSource/index";
+import { DarkFabric } from './styles/darkTheme';
+
+loadTheme(DarkFabric);
 
 const pivotList = [
   {
